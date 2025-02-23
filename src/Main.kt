@@ -8,56 +8,30 @@ fun main() {
     println("-----------------------")
     println()
 
-    val number = getInt ("Please enter your first number")
-    println(number)
+    val playerName = getString("Enter Your Name: ")
+    print("Nice to meet you, $playerName, ")
 
-    val numCalculation = ("+, -, *, /")
+    val firstNumber = getInt("Please enter your first number ")
+    val op = getString("Please enter an operation (+, -, *, /) ")
+    val secondNumber = getInt("Please enter your second number ")
 
-    println("I'm thinking of a number from 1 - 100")
-    println("Can you guess it?")
+    when(playerName) {
+        "+" ->
+            println("The result is ${firstNumber + secondNumber}")
 
-    val scoreText = "1000"
-    var score = scoreText.toIntOrNull()
-    println("Score: $score")
+        "-" ->
+            println("The result is ${firstNumber - secondNumber}")
 
-    // MAIN LOOP
-    while (true) {
-        var playerName = getString("Enter Your Name: ")
-        print("Nice to meet you, $playerName")
+        "*" ->
+            println("The result is ${firstNumber * secondNumber}")
+
+        "/" ->
+            println("The result is ${firstNumber / secondNumber}")
     }
-    // Ask the user for a  guess
-    val guess = getString().toIntOrNull()
-
-    if (guess == null) {
-        println("Enter a number!")
-        continue
-    }
-    if (guess == numToGuess) {
-        println("Yeah you got it!")
-        val score = 1
-        println("Score: $score")
-        break
-    }
-    else if (guess > numToGuess)
-        println("You have guessed too high")
     else
-        println("You have guessed too low")
-
-    // Check if it's correct
-
-    // Break out of the loop if correct
-
-    // Otherwise give high/lower feedback
-
+         println("Unknown operation")
 }
 
-/**
- * Function to get a string from the user
- * parameters
- *  - prompt - Text to show the user
- *  returns:
- *  - String that the user types
- */
 fun getString(prompt: String): String {
     var userInput: String
 
@@ -71,9 +45,6 @@ fun getString(prompt: String): String {
     return userInput
 }
 
-/**
- * Function to get an Int from the user
- */
 
 fun getInt(prompt: String): Int {
     var intValue: Int?
